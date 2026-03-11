@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <title>Answer this honestly</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loadingScreen">
+    <div class="loading-card">
+      <div class="loading-hearts">💖 💗 💕</div>
+      <div class="loading-cat">🐱</div>
+      <h2>Preparing something cute...</h2>
+      <div class="loading-bar">
+        <div class="loading-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Background Hearts -->
+  <div class="bg-hearts" aria-hidden="true">
+    <span>💖</span>
+    <span>💕</span>
+    <span>💗</span>
+    <span>💘</span>
+    <span>💞</span>
+    <span>💝</span>
+    <span>💖</span>
+    <span>💕</span>
+    <span>💗</span>
+    <span>💘</span>
+    <span>💞</span>
+    <span>💝</span>
+  </div>
+
+  <!-- Main App -->
+  <div class="app" id="app">
+    <img id="cat" src="cat.png" alt="cute cat" />
+
+    <h1 id="question">Do you love me? 🥺</h1>
+
+    <div class="buttons" id="buttonsArea">
+      <button id="yesBtn">YES ❤️</button>
+      <button id="noBtn">NO 🙃</button>
+    </div>
+
+    <p id="message"></p>
+
+    <button id="shareBtn">Share this ❤️</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
