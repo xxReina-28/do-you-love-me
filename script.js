@@ -1,20 +1,20 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const message = document.getElementById("message");
-const cat = document.getElementById("cat");
 const shareBtn = document.getElementById("shareBtn");
 const loadingScreen = document.getElementById("loadingScreen");
 const buttonsArea = document.getElementById("buttonsArea");
+const bear = document.getElementById("bear");
 
 let attempts = 0;
 let heartInterval = null;
 let gameWon = false;
 
-/* Cute loading screen */
+/* Loading screen */
 window.addEventListener("load", () => {
   setTimeout(() => {
     loadingScreen.classList.add("hidden");
-  }, 2200);
+  }, 2000);
 });
 
 /* Escape logic */
@@ -47,15 +47,17 @@ function escapeButton(event) {
   const grow = 1 + attempts * 0.18;
   yesBtn.style.transform = `scale(${grow})`;
 
-  cat.style.transform = `translate(${x / 7}px, ${y / 7}px)`;
+  bear.style.transform = `translate(${x / 10}px, ${y / 12}px)`;
 
   if (attempts === 2) {
-    cat.src = "sadcat.png";
+    bear.classList.remove("cry", "love");
+    bear.classList.add("sad");
     message.innerText = "Why not? 🥺";
   }
 
   if (attempts === 4) {
-    cat.src = "crycat.png";
+    bear.classList.remove("sad", "love");
+    bear.classList.add("cry");
     message.innerText = "That hurts a little 😭";
   }
 
@@ -83,14 +85,17 @@ yesBtn.addEventListener("click", () => {
   if (gameWon) return;
 
   gameWon = true;
-  cat.src = "lovecat.png";
-  cat.style.transform = "scale(1.05)";
+  bear.classList.remove("sad", "cry");
+  bear.classList.add("love");
+
   message.innerHTML = "";
   typeMessage("I knew it!! You love me ❤️");
+
   startHeartStorm();
+
   shareBtn.classList.add("show");
   noBtn.style.display = "none";
-  document.body.style.background = "linear-gradient(180deg, #ffc2d1, #ffe7ef)";
+  document.body.style.background = "linear-gradient(180deg, #ffc9d8, #ffeaf1)";
 });
 
 /* Typing effect */
@@ -105,7 +110,7 @@ function typeMessage(textToType) {
   }, 40);
 }
 
-/* Floating burst hearts after win */
+/* Hearts after win */
 function startHeartStorm() {
   if (heartInterval) return;
 

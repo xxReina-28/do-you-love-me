@@ -14,8 +14,21 @@
   <div id="loadingScreen">
     <div class="loading-card">
       <div class="loading-hearts">💖 💗 💕</div>
-      <div class="loading-cat">🐱</div>
+
+      <div class="mini-bear-wrap">
+        <div class="mini-bear">
+          <div class="mini-ear left"></div>
+          <div class="mini-ear right"></div>
+          <div class="mini-face">
+            <span class="mini-eye left"></span>
+            <span class="mini-eye right"></span>
+            <span class="mini-mouth"></span>
+          </div>
+        </div>
+      </div>
+
       <h2>Preparing something cute...</h2>
+
       <div class="loading-bar">
         <div class="loading-fill"></div>
       </div>
@@ -40,7 +53,37 @@
 
   <!-- Main App -->
   <div class="app" id="app">
-    <img id="cat" src="cat.png" alt="cute cat" />
+    <div class="bear-scene">
+      <div class="bear" id="bear">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+
+        <div class="face">
+          <span class="eye left"></span>
+          <span class="eye right"></span>
+
+          <div class="brow left" id="browLeft"></div>
+          <div class="brow right" id="browRight"></div>
+
+          <div class="snout">
+            <span class="nose"></span>
+            <span class="mouth" id="mouth"></span>
+          </div>
+
+          <span class="blush left"></span>
+          <span class="blush right"></span>
+
+          <span class="tear left" id="tearLeft"></span>
+          <span class="tear right" id="tearRight"></span>
+        </div>
+
+        <div class="body">
+          <div class="arm left" id="armLeft"></div>
+          <div class="arm right" id="armRight"></div>
+          <div class="belly"></div>
+        </div>
+      </div>
+    </div>
 
     <h1 id="question">Do you love me? 🥺</h1>
 
