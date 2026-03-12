@@ -85,6 +85,7 @@ yesBtn.addEventListener("click", () => {
   if (gameWon) return;
 
   gameWon = true;
+
   bear.classList.remove("sad", "cry");
   bear.classList.add("love");
 
@@ -92,10 +93,14 @@ yesBtn.addEventListener("click", () => {
   typeMessage("I knew it!! You love me ❤️");
 
   startHeartStorm();
+  burstHearts(30);
+  shakeScreen();
 
   shareBtn.classList.add("show");
   noBtn.style.display = "none";
-  document.body.style.background = "linear-gradient(180deg, #ffc9d8, #ffeaf1)";
+
+  document.body.style.background =
+    "linear-gradient(180deg, #5a0000, #9b111e)";
 });
 
 /* Typing effect */
@@ -110,7 +115,7 @@ function typeMessage(textToType) {
   }, 40);
 }
 
-/* Hearts after win */
+/* Floating continuous hearts after win */
 function startHeartStorm() {
   if (heartInterval) return;
 
@@ -128,12 +133,40 @@ function startHeartStorm() {
   }, 180);
 }
 
+/* Instant burst of hearts */
+function burstHearts(count) {
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart-burst";
+    heart.innerHTML = ["❤️", "💖", "💕", "💘", "💞"][Math.floor(Math.random() * 5)];
+    heart.style.left = `${Math.random() * 100}vw`;
+    heart.style.bottom = `${Math.random() * 30}px`;
+    heart.style.fontSize = `${20 + Math.random() * 18}px`;
+    heart.style.animationDuration = `${2.2 + Math.random() * 1.6}s`;
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }
+}
+
+/* Screen shake */
+function shakeScreen() {
+  document.body.classList.add("shake");
+
+  setTimeout(() => {
+    document.body.classList.remove("shake");
+  }, 950);
+}
+
 /* Share button */
 shareBtn.addEventListener("click", async () => {
   try {
     if (navigator.share) {
       await navigator.share({
-        title: "Answer this honestly",
+        title: "One question for you...",
         text: "You need to answer this 😆",
         url: window.location.href,
       });
